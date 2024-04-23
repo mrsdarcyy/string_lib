@@ -7,64 +7,64 @@ My implementation of the standard string.h library in the C programming language
 
 ![string](https://github.com/ArzimanOff/my_string_h_lib/assets/102418559/dbdd29f9-ceea-4ac9-afd9-c424007d0f12)
 
-## Руководство по использованию (◕‿◕)
+## Usage guide
 
-### Для сборки библиотеки и исполняемого файла тестов, используй следующие команды:
+### To build the library and test executable, use the following commands:
 
 ```make all```
 
-### Для запуска тестов и проверки утечек памяти:
+### To run tests and check for memory leaks:
 
 ```make leaks```
 
-### Для создания отчета о покрытии кода:
+### To create a code coverage report:
 
 ```make gcov_report```
 
-### Для применения стиля форматирования Google к коду:
+### To apply Google's formatting style to the code:
 
 ```make style```
 
-### string.h Типы
+### string.h Types
 
-| № | Переменная | Описание |
+| № | Variable | Description |
 | ------ | ------ | ------ |
-| 1 | size_t | Целочисленный тип без знака, являющийся результатом ключевого слова sizeof.
+| 1 | size_t | An unsigned integer type that is the result of the sizeof keyword.
 	
-### string.h Макросы
+### string.h Macros
 
-| № | Макрос | Описание |
+| № | Macros | Description |
 | ------ | ------ | ------ |
-| 1 | NULL | Макрос, являющийся значением константы нулевого указателя.
+| 1 | NULL | A macro that is the value of a null pointer constant.
 
-### string.h Функции
+### string.h Functions
 
-| № | Функция | Описание |
+| № | Function | Description |
 | ------ | ------ | ------ |
-| 1 | void *memchr(const void *str, int c, size_t n) | Выполняет поиск первого вхождения символа c (беззнаковый тип) в первых n байтах строки, на которую указывает аргумент str. |
-| 2 | int memcmp(const void *str1, const void *str2, size_t n) | Сравнивает первые n байтов str1 и str2. |
-| 3 | void *memcpy(void *dest, const void *src, size_t n) | Копирует n символов из src в dest. |
-| 4 | void *memset(void *str, int c, size_t n) | Копирует символ c (беззнаковый тип) в первые n символов строки, на которую указывает аргумент str. |
-| 5 | char *strncat(char *dest, const char *src, size_t n) | Добавляет строку, на которую указывает src, в конец строки, на которую указывает dest, длиной до n символов. |
-| 6	| char *strchr(const char *str, int c) | Выполняет поиск первого вхождения символа c (беззнаковый тип) в строке, на которую указывает аргумент str. |
-| 7 | int strncmp(const char *str1, const char *str2, size_t n) | Сравнивает не более первых n байтов str1 и str2. |
-| 8 | char *strncpy(char *dest, const char *src, size_t n) | Копирует до n символов из строки, на которую указывает src, в dest. |
-| 9 | size_t strcspn(const char *str1, const char *str2) | Вычисляет длину начального сегмента str1, который полностью состоит из символов, не входящих в str2. |
-| 10 | char *strerror(int errnum) | Выполняет поиск во внутреннем массиве номера ошибки errnum и возвращает указатель на строку с сообщением об ошибке. Нужно объявить макросы, содержащие массивы сообщений об ошибке для операционных систем mac и linux. Описания ошибок есть в оригинальной библиотеке. Проверка текущей ОС осуществляется с помощью директив.|
-| 11 | size_t strlen(const char *str) | Вычисляет длину строки str, не включая завершающий нулевой символ. |
-| 12 | char *strpbrk(const char *str1, const char *str2) | Находит первый символ в строке str1, который соответствует любому символу, указанному в str2. |
-| 13 | char *strrchr(const char *str, int c) | Выполняет поиск последнего вхождения символа c (беззнаковый тип) в строке, на которую указывает аргумент str. |
-| 14 | char *strstr(const char *haystack, const char *needle) | Находит первое вхождение всей строки needle (не включая завершающий нулевой символ), которая появляется в строке haystack. |
-| 15 | char *strtok(char *str, const char *delim) | Разбивает строку str на ряд токенов, разделенных delim. |
+| 1 | void *memchr(const void *str, int c, size_t n) | Searches for the first occurrence of the character c (unsigned type) in the first n bytes of the string pointed to by the str argument. |
+| 2 | int memcmp(const void *str1, const void *str2, size_t n) | Compares the first n bytes of str1 and str2. |
+| 3 | void *memcpy(void *dest, const void *src, size_t n) | Copies n characters from src to dest. |
+| 4 | void *memset(void *str, int c, size_t n) | Copies the character c (unsigned type) into the first n characters of the string pointed to by the str argument. |
+| 5 | char *strncat(char *dest, const char *src, size_t n) | Adds the string pointed to by src to the end of the string pointed to by dest, up to n characters long. |
+| 6	| char *strchr(const char *str, int c) | Searches for the first occurrence of the character c (unsigned type) in the string pointed to by the str argument. |
+| 7 | int strncmp(const char *str1, const char *str2, size_t n) | Compares at most the first n bytes of str1 and str2. |
+| 8 | char *strncpy(char *dest, const char *src, size_t n) | Copies up to n characters from the string pointed to by src to dest. |
+| 9 | size_t strcspn(const char *str1, const char *str2) | Calculates the length of the initial segment of str1, which consists entirely of characters not included in str2. |
+| 10 | char *strerror(int errnum) | Searches the internal array for errnum error number and returns a pointer to the error message string. We need to declare macros containing arrays of error messages for mac and linux operating systems. The error descriptions are in the original library. The current operating system is checked using directives.|
+| 11 | size_t strlen(const char *str) | Calculates the length of the string str, not including the terminating null character. |
+| 12 | char *strpbrk(const char *str1, const char *str2) | Finds the first character in str1 that matches any character specified in str2. |
+| 13 | char *strrchr(const char *str, int c) | Searches for the last occurrence of the character c (unsigned type) in the string pointed to by the str argument. |
+| 14 | char *strstr(const char *haystack, const char *needle) | Finds the first occurrence of the entire needle string (not including the terminating null character) that appears in the haystack string. |
+| 15 | char *strtok(char *str, const char *delim) | Splits the string str into a number of tokens separated by delim. |
 
 
 
-### Специальные функции обработки строк (вдохновленные классом String в языке C#)
+### Special string processing functions (inspired by the String class in C#)
 
-| № | Функция | Описание |
+| № | Function | Description |
 | ------ | ------ | ------ |
-| 1 | void *to_upper(const char *str) | Возвращает копию строки (str), преобразованной в верхний регистр. В случае какой-либо ошибки следует вернуть значение NULL |
-| 2 | void *to_lower(const char *str) | Возвращает копию строки (str), преобразованной в нижний регистр. В случае какой-либо ошибки следует вернуть значение NULL |
-| 3 | void *insert(const char *src, const char *str, size_t start_index) | Возвращает новую строку, в которой указанная строка (str) вставлена в указанную позицию (start_index) в данной строке (src). В случае какой-либо ошибки следует вернуть значение NULL |
-| 4 | void *trim(const char *src, const char *trim_chars) | Возвращает новую строку, в которой удаляются все начальные и конечные вхождения набора заданных символов (trim_chars) из данной строки (src). В случае какой-либо ошибки следует вернуть значение NULL |
+| 1 | void *to_upper(const char *str) | Returns a copy of the string (str) converted to uppercase. In case of any error, return NULL |
+| 2 | void *to_lower(const char *str) | Returns a copy of the string (str) converted to lower case. In case of any error, return NULL |
+| 3 | void *insert(const char *src, const char *str, size_t start_index) | Returns a new line in which the specified string (str) is inserted at the specified position (start_index) in the given line (src). In case of any error, return NULL |
+| 4 | void *trim(const char *src, const char *trim_chars) | Returns a new string that removes all start and end occurrences of a set of specified characters (trim_chars) from the given string (src). In case of any error, return NULL |
 
