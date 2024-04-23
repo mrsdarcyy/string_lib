@@ -4,7 +4,6 @@ ___
 My implementation of the standard string.h library in the C programming language 
 
 
-Репозиторий для самописной копии стандартной библиотеки string.h языка C
 
 ![string](https://github.com/ArzimanOff/my_string_h_lib/assets/102418559/dbdd29f9-ceea-4ac9-afd9-c424007d0f12)
 
